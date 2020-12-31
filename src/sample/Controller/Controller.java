@@ -31,7 +31,7 @@ public class Controller {
 
     public void initialize(){
         MusicDAO mDao = new MusicDAO();
-        ObservableList<Music> rList = (ObservableList<Music>) mDao.showData();
+        ObservableList<Music> mList = (ObservableList<Music>) mDao.showData();
         TabelLagu.setItems(mList);
         KolomJudul.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getJudul()));
         KolomAlbum.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getAlbum()));

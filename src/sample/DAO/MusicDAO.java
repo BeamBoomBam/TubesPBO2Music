@@ -30,7 +30,6 @@ public class MusicDAO implements daoInterface<Music> {
     @Override
     public List<Music> showData() {
         ObservableList<Music> mList = FXCollections.observableArrayList();
-
         try {
             String query = "select * from Music;";
             PreparedStatement ps;
