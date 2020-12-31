@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Controller">
    <children>
       <MenuBar prefHeight="30.0" prefWidth="600.0">
         <menus>
@@ -72,17 +72,17 @@
       </HBox>
       <HBox prefHeight="434.0" prefWidth="800.0">
          <children>
-            <TableView prefHeight="434.0" prefWidth="802.0">
+            <TableView fx:id="TabelLagu" prefHeight="434.0" prefWidth="802.0">
               <columns>
-                <TableColumn prefWidth="257.60003662109375" text="Judul" />
-                <TableColumn minWidth="0.0" prefWidth="277.5999755859375" text="Album" />
-                  <TableColumn prefWidth="263.99993896484375" text="Artist" />
+                <TableColumn fx:id="KolomJudul" prefWidth="257.60003662109375" text="Judul" />
+                <TableColumn fx:id="KolomAlbum" minWidth="0.0" prefWidth="277.5999755859375" text="Album" />
+                  <TableColumn fx:id="KolomArtist" prefWidth="263.99993896484375" text="Artist" />
               </columns>
             </TableView>
          </children></HBox>
       <HBox prefHeight="71.0" prefWidth="600.0">
          <children>
-            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="CoverLagu" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" top="10.0" />
                </HBox.margin>
@@ -92,7 +92,7 @@
             </ImageView>
             <VBox prefHeight="42.0" prefWidth="162.0">
                <children>
-                  <Label text="12 Days of Christmas">
+                  <Label fx:id="JudulLagu" text="12 Days of Christmas">
                      <VBox.margin>
                         <Insets left="10.0" top="5.0" />
                      </VBox.margin>
@@ -100,7 +100,7 @@
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label text="Pentatonix">
+                  <Label fx:id="ArtisLagu" text="Pentatonix">
                      <VBox.margin>
                         <Insets left="13.0" />
                      </VBox.margin>
@@ -117,7 +117,7 @@
                <children>
                   <HBox prefHeight="42.0" prefWidth="570.0">
                      <children>
-                        <Button mnemonicParsing="false">
+                        <Button fx:id="ShuffleButton" mnemonicParsing="false">
                            <HBox.margin>
                               <Insets left="110.0" right="5.0" top="10.0" />
                            </HBox.margin>
@@ -129,7 +129,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false">
+                        <Button fx:id="PrevButton" mnemonicParsing="false">
                            <HBox.margin>
                               <Insets right="5.0" top="10.0" />
                            </HBox.margin>
@@ -141,7 +141,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false">
+                        <Button fx:id="PlayButton" mnemonicParsing="false">
                            <HBox.margin>
                               <Insets right="5.0" top="10.0" />
                            </HBox.margin>
@@ -153,7 +153,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false">
+                        <Button fx:id="NextButton" mnemonicParsing="false">
                            <HBox.margin>
                               <Insets right="5.0" top="10.0" />
                            </HBox.margin>
@@ -165,7 +165,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false">
+                        <Button fx:id="RepeatButton" mnemonicParsing="false">
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin>
@@ -181,7 +181,7 @@
                   </HBox>
                   <HBox prefHeight="42.0" prefWidth="266.0">
                      <children>
-                        <Label text="Label">
+                        <Label fx:id="ProgressLagu" text="Label">
                            <HBox.margin>
                               <Insets left="30.0" right="5.0" top="10.0" />
                            </HBox.margin>
@@ -191,7 +191,7 @@
                               <Insets right="5.0" top="15.0" />
                            </HBox.margin>
                         </ProgressBar>
-                        <Label text="Label">
+                        <Label fx:id="SisaWaktu" text="Label">
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin>
@@ -213,7 +213,7 @@
                         <Insets left="20.0" top="35.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Slider>
+                  <Slider fx:id="VolumeSlider">
                      <HBox.margin>
                         <Insets left="10.0" right="15.0" top="37.0" />
                      </HBox.margin>
