@@ -1,16 +1,21 @@
 package sample.Controller;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import sample.DAO.MusicDAO;
+import sample.Model.Music;
 
 public class Controller {
     public TextField SearchBar;
     public Button Search;
     public Button Account;
-    public TableView TabelLagu;
-    public TableColumn KolomJudul;
-    public TableColumn KolomAlbum;
-    public TableColumn KolomArtist;
+    public TableView<Music> TabelLagu;
+    public TableColumn<Music, String> KolomJudul;
+    public TableColumn<Music, String> KolomAlbum;
+    public TableColumn<Music, String> KolomArtist;
     public ImageView CoverLagu;
     public Label JudulLagu;
     public Label ArtisLagu;
@@ -22,4 +27,14 @@ public class Controller {
     public Label ProgressLagu;
     public Label SisaWaktu;
     public Slider VolumeSlider;
+    private ObservableList<Music> mList;
+
+    public void initialize(){
+        MusicDAO mDao = new MusicDAO();
+        ObservableList<Music> rList = (ObservableList<Music>) mDao.showData();
+        TabelLagu.setItems(mList);
+        KolomJudul.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getJudul()));
+        KolomAlbum.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getAlbum()));
+        KolomArtist.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getPenyanyi()));
+    }
 }
