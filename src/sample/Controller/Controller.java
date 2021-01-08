@@ -36,5 +36,8 @@ public class Controller {
         KolomJudul.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getJudul()));
         KolomAlbum.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getAlbum()));
         KolomArtist.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getPenyanyi()));
+
+        Music music = TabelLagu.getSelectionModel().getSelectedItem();
+        System.out.println(music);
     }
 }
