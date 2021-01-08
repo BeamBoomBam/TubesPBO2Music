@@ -3,6 +3,7 @@ package sample.Controller;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import sample.DAO.MusicDAO;
@@ -39,5 +40,8 @@ public class Controller {
 
         Music music = TabelLagu.getSelectionModel().getSelectedItem();
         System.out.println(music);
+    }
+
+    public void addPlaylist(ActionEvent actionEvent) {
     }
 }
