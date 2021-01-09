@@ -67,8 +67,9 @@ public class Controller {
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()){
             int id = 0;
+            int iduser = 0;
             String playlist = result.get();
-            pDao.addData(new Playlist(playlist));
+            pDao.addData(new Playlist());
         }
         ObservableList<Playlist> pList = (ObservableList<Playlist>) pDao.showData();
         PlaylistView.setItems(pList);

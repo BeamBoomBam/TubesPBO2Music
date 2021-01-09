@@ -3,6 +3,8 @@ package sample.DAO;
 import sample.Model.Music;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import sample.Utility.JDBCConnection;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -16,8 +18,8 @@ public class PlaylistDAO implements daoInterface<Music>{
         try {
             String query = "insert into Playlist(Playlist) values (?)";
             PreparedStatement ps;
-            ps = JBDConnection.getConnection().prepareStatement(query);
-            ps.setString(1,data.getName());
+            ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setString(1,data.getJudul());
             result = ps.executeUpdate();
         }
         catch (SQLException ex){

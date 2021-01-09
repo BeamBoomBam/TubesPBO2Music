@@ -5,7 +5,7 @@ public class Playlist {
     private int idMusic;
     private String playlist;
 
-    public Playlist(int idMusic,int idUser, String playlist){
+    public Playlist() {
         this.idUser = idUser;
         this.idMusic = idMusic;
         this.playlist = playlist;

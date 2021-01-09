@@ -19,9 +19,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Controller">
    <children>
-      <MenuBar prefHeight="30.0" prefWidth="600.0">
+      <MenuBar prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #121212;">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -76,7 +76,7 @@
          <children>
             <VBox prefHeight="434.0" prefWidth="513.0">
                <children>
-                  <Label prefHeight="27.0" prefWidth="194.0" text="My Playlist">
+                  <Label prefHeight="27.0" prefWidth="194.0" text="My Playlist" textFill="#aaaaaa">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -84,11 +84,21 @@
                         <Insets top="5.0" />
                      </padding>
                   </Label>
-                  <ListView fx:id="PlaylistView" prefHeight="390.0" prefWidth="209.0" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="209.0" text="Add Playlist" />
+                  <ListView prefHeight="390.0" prefWidth="209.0" style="-fx-background-color: #121212;" />
+                  <Button mnemonicParsing="false" onAction="#addPlaylist" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Add Playlist" textFill="#aaaaaa">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin></Button>
                </children>
             </VBox>
-            <TableView fx:id="TabelLagu" prefHeight="434.0" prefWidth="896.0">
+            <TableView fx:id="TabelLagu" prefHeight="434.0" prefWidth="896.0" style="-fx-background-color: #181818;">
               <columns>
                 <TableColumn fx:id="KolomJudul" prefWidth="186.0" text="Judul" />
                 <TableColumn fx:id="KolomAlbum" minWidth="0.0" prefWidth="233.0" text="Album" />
@@ -97,13 +107,13 @@
                <contextMenu>
                   <ContextMenu>
                     <items>
-                      <MenuItem fx:id="addButton" mnemonicParsing="false" onAction="#addPlaylist" text="Add to Playlist" />
+                      <MenuItem mnemonicParsing="false" onAction="#addPlaylist" text="Add to Playlist" />
                     </items>
                   </ContextMenu>
                </contextMenu>
             </TableView>
          </children></HBox>
-      <HBox prefHeight="71.0" prefWidth="928.0">
+      <HBox prefHeight="90.0" style="-fx-background-color: #282828;">
          <children>
             <ImageView fx:id="CoverLagu" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
@@ -115,7 +125,7 @@
             </ImageView>
             <VBox prefHeight="42.0" prefWidth="162.0">
                <children>
-                  <Label fx:id="JudulLagu" text="12 Days of Christmas">
+                  <Label fx:id="JudulLagu" text="12 Days of Christmas" textFill="WHITE">
                      <VBox.margin>
                         <Insets left="10.0" top="5.0" />
                      </VBox.margin>
@@ -123,7 +133,7 @@
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Label fx:id="ArtisLagu" text="Pentatonix">
+                  <Label fx:id="ArtisLagu" text="Pentatonix" textFill="#aaaaaa">
                      <VBox.margin>
                         <Insets left="13.0" />
                      </VBox.margin>
@@ -140,7 +150,7 @@
                <children>
                   <HBox prefHeight="42.0" prefWidth="570.0">
                      <children>
-                        <Button fx:id="ShuffleButton" mnemonicParsing="false">
+                        <Button fx:id="ShuffleButton" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;">
                            <HBox.margin>
                               <Insets left="110.0" right="5.0" top="10.0" />
                            </HBox.margin>
@@ -152,7 +162,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="PrevButton" mnemonicParsing="false">
+                        <Button fx:id="PrevButton" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;">
                            <HBox.margin>
                               <Insets right="5.0" top="10.0" />
                            </HBox.margin>
@@ -164,7 +174,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="PlayButton" mnemonicParsing="false" onAction="#playSound">
+                        <Button fx:id="PlayButton" mnemonicParsing="false" onAction="#playSound" style="-fx-background-color: transparent; -fx-cursor: hand;">
                            <HBox.margin>
                               <Insets right="5.0" top="10.0" />
                            </HBox.margin>
@@ -176,7 +186,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="NextButton" mnemonicParsing="false">
+                        <Button fx:id="NextButton" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;">
                            <HBox.margin>
                               <Insets right="5.0" top="10.0" />
                            </HBox.margin>
@@ -188,7 +198,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="RepeatButton" mnemonicParsing="false">
+                        <Button fx:id="RepeatButton" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;">
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin>
@@ -204,7 +214,7 @@
                   </HBox>
                   <HBox prefHeight="42.0" prefWidth="266.0">
                      <children>
-                        <Label fx:id="ProgressLagu" text="Label">
+                        <Label fx:id="ProgressLagu" text="Label" textFill="#aaaaaa">
                            <HBox.margin>
                               <Insets left="30.0" right="5.0" top="10.0" />
                            </HBox.margin>
@@ -214,7 +224,7 @@
                               <Insets right="5.0" top="15.0" />
                            </HBox.margin>
                         </ProgressBar>
-                        <Label fx:id="SisaWaktu" text="Label">
+                        <Label fx:id="SisaWaktu" text="Label" textFill="#aaaaaa">
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin>
