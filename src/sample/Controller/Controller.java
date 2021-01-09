@@ -45,6 +45,7 @@ public class Controller {
     public Slider VolumeSlider;
     public MenuItem addButton;
     public ListView PlaylistView;
+    public ListView Playlists;
     private ObservableList<Music> mList;
     Stage new_stage;
 
@@ -72,8 +73,8 @@ public class Controller {
             pDao.addData(new Playlist());
         }
         ObservableList<Playlist> pList = (ObservableList<Playlist>) pDao.showData();
-        PlaylistView.setItems(pList);
-        PlaylistView.refresh();
+        Playlists.setItems(pList);
+        Playlists.refresh();
     }
 
     public void playSound(){

@@ -11,6 +11,9 @@ public class Playlist {
         this.playlist = playlist;
     }
 
+    public Playlist(String iduser, String playlist, int idmusic) {
+    }
+
     public int getIdUser() {
         return idUser;
     }
