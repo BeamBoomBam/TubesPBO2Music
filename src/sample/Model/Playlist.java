@@ -38,4 +38,12 @@ public class Playlist {
         this.playlist = playlist;
     }
 
+    @Override
+    public String toString() {
+        return "Playlist{" +
+                "idUser=" + idUser +
+                ", idMusic=" + idMusic +
+                ", playlist='" + playlist + '\'' +
+                '}';
+    }
 }

@@ -84,7 +84,14 @@
                         <Insets top="5.0" />
                      </padding>
                   </Label>
-                  <ListView fx:id="Playlists" prefHeight="390.0" prefWidth="209.0" style="-fx-background-color: #121212;" />
+                  <ListView fx:id="Playlists" prefHeight="390.0" prefWidth="209.0" style="-fx-background-color: #121212;">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem fx:id="delPlaylist" mnemonicParsing="false" onAction="#deletePlaylist" text="Delete from playlist" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu></ListView>
                   <Button mnemonicParsing="false" onAction="#addPlaylist" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Add Playlist" textFill="#aaaaaa">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">

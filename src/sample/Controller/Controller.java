@@ -59,6 +59,11 @@ public class Controller {
 
         Music music = TabelLagu.getSelectionModel().getSelectedItem();
         System.out.println(music);
+
+        PlaylistDAO pDao = new PlaylistDAO();
+        ObservableList<Playlist> pList = (ObservableList<Playlist>) pDao.showData();
+        Playlists.setItems(pList);
+        Playlists.refresh();
     }
 
     public void addPlaylist(ActionEvent ex) throws IOException {
@@ -96,5 +101,8 @@ public class Controller {
         catch (Exception ex){
             ex.printStackTrace();
         }
+    }
+
+    public void deletePlaylist(ActionEvent actionEvent) {
     }
 }
