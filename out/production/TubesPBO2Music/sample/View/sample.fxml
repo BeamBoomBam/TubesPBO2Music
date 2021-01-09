@@ -97,7 +97,7 @@
                <contextMenu>
                   <ContextMenu>
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#addPlaylist" text="Add to Playlist" />
+                      <MenuItem mnemonicParsing="false" fx:id="addButton" onAction="#addPlaylist" text="Add to Playlist" />
                     </items>
                   </ContextMenu>
                </contextMenu>

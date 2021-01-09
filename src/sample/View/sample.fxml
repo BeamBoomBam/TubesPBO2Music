@@ -84,7 +84,7 @@
                         <Insets top="5.0" />
                      </padding>
                   </Label>
-                  <ListView prefHeight="390.0" prefWidth="209.0" />
+                  <ListView fx:id="PlaylistView" prefHeight="390.0" prefWidth="209.0" />
                   <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="209.0" text="Add Playlist" />
                </children>
             </VBox>
@@ -97,7 +97,7 @@
                <contextMenu>
                   <ContextMenu>
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#addPlaylist" text="Add to Playlist" />
+                      <MenuItem fx:id="addButton" mnemonicParsing="false" onAction="#addPlaylist" text="Add to Playlist" />
                     </items>
                   </ContextMenu>
                </contextMenu>
