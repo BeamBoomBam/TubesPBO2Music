@@ -164,7 +164,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="PlayButton" mnemonicParsing="false">
+                        <Button fx:id="PlayButton" mnemonicParsing="false" onAction="#playSound">
                            <HBox.margin>
                               <Insets right="5.0" top="10.0" />
                            </HBox.margin>

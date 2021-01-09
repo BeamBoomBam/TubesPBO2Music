@@ -9,6 +9,11 @@ import javafx.scene.image.ImageView;
 import sample.DAO.MusicDAO;
 import sample.Model.Music;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.io.File;
+
 public class Controller {
     public TextField SearchBar;
     public Button Search;
@@ -43,5 +48,26 @@ public class Controller {
     }
 
     public void addPlaylist(ActionEvent actionEvent) {
+    }
+
+    public void playSound(){
+        String filepath = "../Sounds/12DaysOfChristmas.mp3";
+
+        try {
+            File musicPath = new File(filepath);
+
+            if (musicPath.exists()){
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInput);
+                clip.start();
+            }
+            else {
+                System.out.println("File tidak ditemukan.");
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 }
