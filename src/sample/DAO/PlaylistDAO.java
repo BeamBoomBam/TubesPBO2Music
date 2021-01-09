@@ -17,7 +17,18 @@ public class PlaylistDAO implements daoInterface<Playlist>{
 
     @Override
     public int addData(Playlist data) {
-        return 0;
+        int result = 0;
+        try {
+            String query = "insert into Playlist(Nama) values (?)";
+            PreparedStatement ps;
+            ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setString(1,data.getNama());
+            result = ps.executeUpdate();
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return result;
     }
 
     @Override
@@ -39,10 +50,11 @@ public class PlaylistDAO implements daoInterface<Playlist>{
             ps = JDBCConnection.getConnection().prepareStatement(query);
             ResultSet res = ps.executeQuery();
             while (res.next()){
-                String iduser = res.getString("idUser");
-                String playlist = res.getString("Playlist");
-                int idmusic = res.getInt("idMusic");
-                Playlist p = new Playlist(iduser,playlist, idmusic);
+                int idplaylist = res.getInt("idPlaylist");
+                String nama = res.getString("Nama");
+                int idmusic = res.getInt("Music_idMusic");
+                int iduser = res.getInt("User_idUser");
+                Playlist p = new Playlist(idplaylist,nama, idmusic, iduser);
                 pList.add(p);
             }
         }

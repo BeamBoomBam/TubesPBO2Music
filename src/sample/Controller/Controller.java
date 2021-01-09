@@ -45,7 +45,7 @@ public class Controller {
     public Slider VolumeSlider;
     public MenuItem addButton;
     public ListView PlaylistView;
-    public ListView Playlists;
+    public ListView<Playlist> Playlists;
     private ObservableList<Music> mList;
     Stage new_stage;
 
@@ -69,7 +69,7 @@ public class Controller {
     public void addPlaylist(ActionEvent ex) throws IOException {
         PlaylistDAO pDao = new PlaylistDAO();
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setContentText("input a club name :");
+        dialog.setContentText("Playlist name :");
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()){
             int id = 0;

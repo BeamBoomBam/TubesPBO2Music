@@ -1,25 +1,29 @@
 package sample.Model;
 
 public class Playlist {
-    private int idUser;
+
+
+    private int idPlaylist;
     private int idMusic;
-    private String playlist;
+    private String Nama;
+    private int idUser;
 
     public Playlist() {
-        this.idUser = idUser;
+        this.idPlaylist = idPlaylist;
+        this.Nama = Nama;
         this.idMusic = idMusic;
-        this.playlist = playlist;
-    }
-
-    public Playlist(String iduser, String playlist, int idmusic) {
-    }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
         this.idUser = idUser;
+    }
+
+    public Playlist(int idplaylist, String nama, int idmusic, int iduser) {
+    }
+
+    public int getIdPlaylist() {
+        return idPlaylist;
+    }
+
+    public void setIdPlaylist(int idPlaylist) {
+        this.idPlaylist = idPlaylist;
     }
 
     public int getIdMusic() {
@@ -30,20 +34,24 @@ public class Playlist {
         this.idMusic = idMusic;
     }
 
-    public String getPlaylist() {
-        return playlist;
+    public String getNama() {
+        return Nama;
     }
 
-    public void setPlaylist(String playlist) {
-        this.playlist = playlist;
+    public void setNama(String nama) {
+        Nama = nama;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     @Override
     public String toString() {
-        return "Playlist{" +
-                "idUser=" + idUser +
-                ", idMusic=" + idMusic +
-                ", playlist='" + playlist + '\'' +
-                '}';
+        return "playlist" + Nama;
     }
 }
