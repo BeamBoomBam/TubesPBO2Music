@@ -230,7 +230,7 @@
                         </HBox>
                         <HBox prefHeight="42.0" prefWidth="266.0">
                            <children>
-                              <Label fx:id="ProgressLagu" text="Label" textFill="#aaaaaa">
+                              <Label fx:id="ProgressLagu" text="00:00" textFill="#aaaaaa">
                                  <HBox.margin>
                                     <Insets left="30.0" right="5.0" top="10.0" />
                                  </HBox.margin>
