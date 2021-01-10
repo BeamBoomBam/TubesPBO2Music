@@ -8,12 +8,12 @@ public class Playlist {
     private String Nama;
     private int idUser;
 
-//    public Playlist(int idplaylist, String nama, int idmusic, int iduser) {
-//        this.idPlaylist = idPlaylist;
-//        this.Nama = Nama;
-//        this.idMusic = idMusic;
-//        this.idUser = idUser;
-//    }
+    public Playlist(int idplaylist, String nama, int idmusic, int iduser) {
+        this.idPlaylist = idPlaylist;
+        this.Nama = Nama;
+        this.idMusic = idMusic;
+        this.idUser = idUser;
+    }
 
     public int getIdPlaylist() {
         return idPlaylist;
