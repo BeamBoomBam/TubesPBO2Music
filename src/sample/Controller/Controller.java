@@ -44,6 +44,8 @@ public class Controller implements Initializable {
     public ImageView CoverLagu;
     public Label JudulLagu;
     public Label ArtisLagu;
+    public static Label static_labelJudul;
+    public static Label static_labelArtis;
     public Button ShuffleButton;
     public Button PrevButton;
     public Button PlayButton;
@@ -90,6 +92,8 @@ public class Controller implements Initializable {
         Music music = TabelLagu.getSelectionModel().getSelectedItem();
         System.out.println(music);
         Playlists.refresh();
+        static_labelJudul = JudulLagu;
+        static_labelArtis = ArtisLagu;
 
         musicList.addAll(mDao.showData());
         FilteredList<Music> filteredList = new FilteredList<>(musicList, m -> true);
@@ -176,5 +180,10 @@ public class Controller implements Initializable {
 
     public void selectPlaylist(WindowEvent windowEvent) {
         selectedPlaylist = Playlists.getSelectionModel().getSelectedItem();
+    }
+
+    public void playsong(ActionEvent actionEvent) {
+        static_labelJudul.setText(TabelLagu.getSelectionModel().getSelectedItem().getJudul());
+        static_labelArtis.setText(TabelLagu.getSelectionModel().getSelectedItem().getAlbum());
     }
 }
