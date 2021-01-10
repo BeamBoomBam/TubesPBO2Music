@@ -2,24 +2,47 @@ package sample.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import sample.DAO.UserDAO;
 import sample.Main.Main;
+import sample.Model.User;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginController {
+public class LoginController implements Initializable {
 
+
+    public AnchorPane rootPane;
+    public TextField username;
+    public PasswordField password;
 
     public void buttonlogin(ActionEvent actionEvent) throws IOException {
+        UserDAO user = new UserDAO();
+        String textuser = username.getText();
+        String passtext = password.getText();
 
-        Parent root = FXMLLoader.load(Main.class.getResource("../View/sample.fxml"));
-        Stage thirdpage = new Stage();
-        thirdpage.setTitle("Login");
-        thirdpage.setScene(new Scene(root));
-        thirdpage.show();
+        int Result = user.Login(textuser, passtext);
+        if (Result == 0){
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../View/sample.fxml"));
+            rootPane.getChildren().setAll(pane);
+        }
+        else {
+            System.out.println("Salah Username / Password!");
+        }
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 }

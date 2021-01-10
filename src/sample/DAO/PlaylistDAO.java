@@ -24,6 +24,7 @@ public class PlaylistDAO implements daoInterface<Playlist>{
             ps = JDBCConnection.getConnection().prepareStatement(query);
             ps.setString(1,data.getNama());
             result = ps.executeUpdate();
+            System.out.println(data.getNama());
         }
         catch (SQLException ex){
             System.out.println(ex.getMessage());

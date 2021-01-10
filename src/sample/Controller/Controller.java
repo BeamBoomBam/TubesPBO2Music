@@ -75,9 +75,13 @@ public class Controller {
             int idmusic = 0;
             int iduser = 1;
             String nama = result.get();
-            pDao.addData(new Playlist(id, nama, idmusic, iduser));
+//            System.out.println(nama);
+            Playlist halo = new Playlist(id, nama, idmusic, iduser);
+            System.out.println(halo.getNama());
+            pDao.addData(halo);
         }
         ObservableList<Playlist> pList = (ObservableList<Playlist>) pDao.showData();
+
         Playlists.setItems(pList);
         Playlists.refresh();
     }
