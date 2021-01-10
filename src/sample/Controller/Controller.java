@@ -3,6 +3,8 @@ package sample.Controller;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,6 +29,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Observable;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -59,6 +62,8 @@ public class Controller implements Initializable {
     private PlaylistDAO playlistDAO;
     private Playlist selectedPlaylist;
 
+    private final ObservableList<Music> musicList = FXCollections.observableArrayList();
+
     public PlaylistDAO getPlaylistDAO() {
         if (playlistDAO == null) {
             playlistDAO = new PlaylistDAO();
@@ -85,6 +90,27 @@ public class Controller implements Initializable {
         Music music = TabelLagu.getSelectionModel().getSelectedItem();
         System.out.println(music);
         Playlists.refresh();
+
+        musicList.addAll(mDao.showData());
+        FilteredList<Music> filteredList = new FilteredList<>(musicList, m -> true);
+        SearchBar.textProperty().addListener(((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(Music ->{
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (Music.getJudul().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                } else if (Music.getAlbum().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                } else return Music.getPenyanyi().toLowerCase().contains(lowerCaseFilter);
+            });
+        }));
+        SortedList<Music> sortedList = new SortedList<>(filteredList);
+        sortedList.comparatorProperty().bind((TabelLagu.comparatorProperty()));
+        TabelLagu.setItems(sortedList);
+
 
     }
 
