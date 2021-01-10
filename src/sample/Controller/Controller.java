@@ -44,7 +44,6 @@ public class Controller {
     public Label SisaWaktu;
     public Slider VolumeSlider;
     public MenuItem addButton;
-    public ListView PlaylistView;
     public ListView<Playlist> Playlists;
     private ObservableList<Music> mList;
     Stage new_stage;
@@ -73,9 +72,10 @@ public class Controller {
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()){
             int id = 0;
-            int iduser = 0;
-            String playlist = result.get();
-            pDao.addData(new Playlist());
+            int idmusic = 0;
+            int iduser = 1;
+            String nama = result.get();
+            pDao.addData(new Playlist(id, nama, idmusic, iduser));
         }
         ObservableList<Playlist> pList = (ObservableList<Playlist>) pDao.showData();
         Playlists.setItems(pList);
