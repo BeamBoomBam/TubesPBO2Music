@@ -8,6 +8,9 @@ public class Playlist {
     private String Nama;
     private int idUser;
 
+    public Playlist() {
+    }
+
     public Playlist(int idplaylist, String nama, int idmusic, int iduser) {
         this.idPlaylist = idPlaylist;
         this.Nama = Nama;
@@ -49,6 +52,6 @@ public class Playlist {
 
     @Override
     public String toString() {
-        return "Playlist : " + Nama;
+        return Nama;
     }
 }
