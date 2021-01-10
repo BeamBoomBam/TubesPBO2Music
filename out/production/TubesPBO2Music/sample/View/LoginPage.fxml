@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.LoginController">
    <children>
       <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;">
          <VBox.margin>
@@ -49,17 +48,17 @@
             <Insets top="40.0" />
          </padding>
       </HBox>
-      <TextField opacity="0.5" prefHeight="9.0" prefWidth="800.0" promptText="Username">
+      <TextField fx:id="username" opacity="0.5" prefHeight="9.0" prefWidth="800.0" promptText="Username">
          <VBox.margin>
             <Insets left="200.0" right="200.0" top="50.0" />
          </VBox.margin>
       </TextField>
-      <PasswordField opacity="0.5" promptText="Password">
+      <PasswordField fx:id="password" opacity="0.5" promptText="Password">
          <VBox.margin>
             <Insets left="200.0" right="200.0" top="30.0" />
          </VBox.margin>
       </PasswordField>
-      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="129.0" style="-fx-background-color: #1DB954; -fx-background-radius: 30; -fx-cursor: hand;" text="LOG IN" textFill="WHITE">
+      <Button fx:id="login" mnemonicParsing="false" onAction="#buttonlogin" prefHeight="38.0" prefWidth="129.0" style="-fx-background-color: #1DB954; -fx-background-radius: 30; -fx-cursor: hand;" text="LOG IN" textFill="WHITE">
          <VBox.margin>
             <Insets left="330.0" top="30.0" />
          </VBox.margin>
