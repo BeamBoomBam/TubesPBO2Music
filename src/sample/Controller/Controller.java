@@ -10,8 +10,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import sample.DAO.MusicDAO;
 import sample.DAO.PlaylistDAO;
 import sample.Main.Main;
@@ -49,11 +51,13 @@ public class Controller implements Initializable {
     public Slider VolumeSlider;
     public MenuItem addButton;
     public ListView<Playlist> Playlists;
+    public MenuItem delPlaylist;
     private ObservableList<Music> mList;
     public ObservableList<Playlist> pList;
     Stage new_stage;
     private Playlist playlist;
     private PlaylistDAO playlistDAO;
+    private Playlist selectedPlaylist;
 
     public PlaylistDAO getPlaylistDAO() {
         if (playlistDAO == null) {
@@ -80,6 +84,7 @@ public class Controller implements Initializable {
         KolomArtist.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getPenyanyi()));
         Music music = TabelLagu.getSelectionModel().getSelectedItem();
         System.out.println(music);
+        Playlists.refresh();
 
     }
 
@@ -127,5 +132,23 @@ public class Controller implements Initializable {
     }
 
     public void deletePlaylist(ActionEvent actionEvent) {
+        selectedPlaylist = Playlists.getSelectionModel().getSelectedItem();
+        System.out.println(selectedPlaylist.getIdPlaylist());
+        if(playlistDAO.delData(selectedPlaylist)==0){
+            selectedPlaylist = Playlists.getSelectionModel().getSelectedItem();
+            playlistDAO.delData(selectedPlaylist);
+        }
+
+        getpList().clear();
+        getpList().addAll(playlistDAO.showData());
+        Playlists.setItems(this.getpList());
+    }
+
+    public void selectplaylist(MouseEvent mouseEvent) {
+        selectedPlaylist = Playlists.getSelectionModel().getSelectedItem();
+    }
+
+    public void selectPlaylist(WindowEvent windowEvent) {
+        selectedPlaylist = Playlists.getSelectionModel().getSelectedItem();
     }
 }

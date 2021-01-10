@@ -43,7 +43,22 @@ public class PlaylistDAO implements daoInterface<Playlist>{
 
     @Override
     public int delData(Playlist data) {
-        return 0;
+            int result = 0;
+            try (Connection connection = JDBCConnection.getConnection()) {
+                String query = "DELETE FROM Playlist WHERE idPlaylist = ?";
+                try (PreparedStatement ps = connection.prepareStatement(query)) {
+                    ps.setInt(1, data.getIdPlaylist());
+                    if (ps.executeUpdate() != 0) {
+                        connection.commit();
+                        result = 1;
+                    } else {
+                        connection.rollback();
+                    }
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        return result;
     }
 
     @Override

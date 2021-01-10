@@ -16,6 +16,7 @@ public class PlaylistController implements Initializable {
     public void createPlaylist(ActionEvent actionEvent) {
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

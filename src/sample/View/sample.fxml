@@ -20,7 +20,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Controller">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #181818;">
@@ -89,9 +88,9 @@
                               <Insets top="5.0" />
                            </padding>
                         </Label>
-                        <ListView fx:id="Playlists" prefHeight="390.0" prefWidth="209.0" style="-fx-background-color: #121212;">
+                        <ListView fx:id="Playlists" onMouseClicked="#selectplaylist" prefHeight="390.0" prefWidth="209.0" style="-fx-background-color: #121212;">
                            <contextMenu>
-                              <ContextMenu>
+                              <ContextMenu onShowing="#selectPlaylist">
                                 <items>
                                   <MenuItem fx:id="delPlaylist" mnemonicParsing="false" onAction="#deletePlaylist" text="Delete from playlist" />
                                 </items>
