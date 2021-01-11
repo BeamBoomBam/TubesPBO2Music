@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ChildPane" maxHeight="600.0" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Controller">
+<AnchorPane fx:id="ChildPane" maxHeight="600.0" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@TableStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Controller">
    <children>
       <VBox maxHeight="600.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #181818;">
          <children>
@@ -76,15 +76,18 @@
                <children>
                   <VBox prefHeight="434.0" prefWidth="513.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="194.0" text="My Playlist" textFill="#aaaaaa">
+                        <Label prefHeight="45.0" prefWidth="194.0" text="My Playlist" textFill="WHITE">
                            <VBox.margin>
-                              <Insets />
+                              <Insets left="10.0" top="5.0" />
                            </VBox.margin>
                            <padding>
                               <Insets top="5.0" />
                            </padding>
+                           <font>
+                              <Font name="SansSerif Bold" size="24.0" />
+                           </font>
                         </Label>
-                        <ListView fx:id="Playlists" onMouseClicked="#selectplaylist" prefHeight="436.0" prefWidth="253.0" style="-fx-background-color: #121212;">
+                        <ListView fx:id="Playlists" onMouseClicked="#selectplaylist" prefHeight="436.0" prefWidth="209.0" style="-fx-background-color: #121212;">
                            <contextMenu>
                               <ContextMenu onShowing="#selectPlaylist">
                                 <items>
@@ -92,6 +95,9 @@
                                 </items>
                               </ContextMenu>
                            </contextMenu>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
                         </ListView>
                         <Button mnemonicParsing="false" onAction="#addPlaylist" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Add Playlist" textFill="#aaaaaa">
                            <graphic>
@@ -102,7 +108,7 @@
                               </ImageView>
                            </graphic>
                            <VBox.margin>
-                              <Insets left="45.0" />
+                              <Insets left="25.0" />
                            </VBox.margin>
                         </Button>
                      </children>
@@ -142,16 +148,13 @@
                               <Insets left="10.0" top="5.0" />
                            </VBox.margin>
                            <font>
-                              <Font size="11.0" />
+                              <Font size="13.0" />
                            </font>
                         </Label>
                         <Label fx:id="ArtisLagu" text="Pentatonix" textFill="#aaaaaa">
                            <VBox.margin>
                               <Insets left="13.0" />
                            </VBox.margin>
-                           <font>
-                              <Font size="10.0" />
-                           </font>
                         </Label>
                      </children>
                      <HBox.margin>
