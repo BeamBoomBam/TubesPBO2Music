@@ -1,11 +1,13 @@
 package sample.Controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -24,6 +26,7 @@ public class LoginController implements Initializable {
     public AnchorPane rootPane;
     public TextField username;
     public PasswordField password;
+    public Button CloseButton;
 
     public void buttonlogin(ActionEvent actionEvent) throws IOException {
         UserDAO user = new UserDAO();
@@ -43,5 +46,9 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void CloseApp(ActionEvent actionEvent) {
+        Platform.exit();
     }
 }

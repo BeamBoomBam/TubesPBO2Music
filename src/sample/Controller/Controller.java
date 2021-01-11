@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -57,6 +58,7 @@ public class Controller implements Initializable {
     public MenuItem addButton;
     public ListView<Playlist> Playlists;
     public MenuItem delPlaylist;
+    public AnchorPane ChildPane;
     private ObservableList<Music> mList;
     public ObservableList<Playlist> pList;
     Stage new_stage;
@@ -185,5 +187,10 @@ public class Controller implements Initializable {
     public void playsong(ActionEvent actionEvent) {
         static_labelJudul.setText(TabelLagu.getSelectionModel().getSelectedItem().getJudul());
         static_labelArtis.setText(TabelLagu.getSelectionModel().getSelectedItem().getAlbum());
+    }
+
+    public void Logout(ActionEvent actionEvent) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../View/LoginPage.fxml"));
+        ChildPane.getChildren().setAll(pane);
     }
 }

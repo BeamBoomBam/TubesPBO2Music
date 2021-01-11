@@ -13,24 +13,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="rootPane" prefHeight="641.0" prefWidth="847.0" styleClass="back" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.LoginController">
+<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" styleClass="back" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.LoginController">
    <children>
-      <VBox layoutX="-8.0" layoutY="-4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="858.0" style="-fx-background-color: #121212;" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="-4.0">
+      <VBox layoutX="-8.0" layoutY="-4.0" maxHeight="600.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #121212;" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="-4.0">
          <children>
-            <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;">
+            <Button fx:id="CloseButton" mnemonicParsing="false" onAction="#CloseApp" style="-fx-background-color: transparent; -fx-cursor: hand;">
                <VBox.margin>
-                  <Insets left="750.0" top="10.0" />
+                  <Insets left="760.0" top="15.0" />
                </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/close.png" />
-               </image>
-               <VBox.margin>
-                  <Insets left="825.0" top="-20.0" />
-               </VBox.margin>
-            </ImageView>
             <HBox prefHeight="218.0" prefWidth="858.0">
                <children>
                   <ImageView fitHeight="116.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
