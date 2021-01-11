@@ -5,12 +5,14 @@ public class Music {
     private String Judul;
     private String Penyanyi;
     private String Album;
+    private String Waktu;
 
-    public Music(int idMusic, String Judul, String Penyanyi, String Album){
+    public Music(int idMusic, String Judul, String Penyanyi, String Album, String Waktu){
         this.idMusic = idMusic;
         this.Judul = Judul;
         this.Penyanyi = Penyanyi;
         this.Album = Album;
+        this.Waktu = Waktu;
     }
 
     @Override
@@ -48,6 +50,14 @@ public class Music {
 
     public void setAlbum(String album) {
         Album = album;
+    }
+
+    public String getWaktu() {
+        return Waktu;
+    }
+
+    public void setWaktu(String waktu) {
+        Waktu = waktu;
     }
 
 

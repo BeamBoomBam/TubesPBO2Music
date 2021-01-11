@@ -40,7 +40,8 @@ public class MusicDAO implements daoInterface<Music> {
                 String judul = res.getString("Judul");
                 String penyanyi = res.getString("Penyanyi");
                 String album = res.getString("Album");
-                Music m = new Music(id,judul, penyanyi, album);
+                String waktu = res.getString("Waktu");
+                Music m = new Music(id,judul, penyanyi, album, waktu);
                 mList.add(m);
             }
         }

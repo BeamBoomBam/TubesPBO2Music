@@ -239,7 +239,7 @@
                                     <Insets right="5.0" top="15.0" />
                                  </HBox.margin>
                               </ProgressBar>
-                              <Label fx:id="SisaWaktu" text="Label" textFill="#aaaaaa">
+                              <Label fx:id="SisaWaktu" text="00:00" textFill="#aaaaaa">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>

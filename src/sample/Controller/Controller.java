@@ -45,15 +45,16 @@ public class Controller implements Initializable {
     public ImageView CoverLagu;
     public Label JudulLagu;
     public Label ArtisLagu;
+    public Label SisaWaktu;
     public static Label static_labelJudul;
     public static Label static_labelArtis;
+    public static Label static_labelSisawaktu;
     public Button ShuffleButton;
     public Button PrevButton;
     public Button PlayButton;
     public Button NextButton;
     public Button RepeatButton;
     public Label ProgressLagu;
-    public Label SisaWaktu;
     public Slider VolumeSlider;
     public MenuItem addButton;
     public ListView<Playlist> Playlists;
@@ -96,6 +97,7 @@ public class Controller implements Initializable {
         Playlists.refresh();
         static_labelJudul = JudulLagu;
         static_labelArtis = ArtisLagu;
+        static_labelSisawaktu = SisaWaktu;
 
         musicList.addAll(mDao.showData());
         FilteredList<Music> filteredList = new FilteredList<>(musicList, m -> true);
@@ -186,6 +188,7 @@ public class Controller implements Initializable {
     public void playsong(ActionEvent actionEvent) {
         static_labelJudul.setText(TabelLagu.getSelectionModel().getSelectedItem().getJudul());
         static_labelArtis.setText(TabelLagu.getSelectionModel().getSelectedItem().getAlbum());
+        static_labelSisawaktu.setText(TabelLagu.getSelectionModel().getSelectedItem().getWaktu());
     }
 
     public void Logout(ActionEvent actionEvent) throws IOException {
