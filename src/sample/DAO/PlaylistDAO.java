@@ -43,21 +43,21 @@ public class PlaylistDAO implements daoInterface<Playlist>{
 
     @Override
     public int delData(Playlist data) {
-            int result = 0;
-            try (Connection connection = JDBCConnection.getConnection()) {
-                String query = "DELETE FROM Playlist WHERE idPlaylist = ?";
-                try (PreparedStatement ps = connection.prepareStatement(query)) {
-                    ps.setInt(1, data.getIdPlaylist());
-                    if (ps.executeUpdate() != 0) {
-                        connection.commit();
-                        result = 1;
-                    } else {
-                        connection.rollback();
-                    }
+        int result = 0;
+        try (Connection connection = JDBCConnection.getConnection()) {
+            String query = "DELETE FROM Playlist WHERE idPlaylist = ?";
+            try (PreparedStatement ps = connection.prepareStatement(query)) {
+                ps.setInt(1, data.getIdPlaylist());
+                if (ps.executeUpdate() != 0) {
+                    connection.commit();
+                    result = 1;
+                } else {
+                    connection.rollback();
                 }
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
             }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return result;
     }
 
@@ -109,5 +109,31 @@ public class PlaylistDAO implements daoInterface<Playlist>{
 //            System.out.println(ex.getMessage());
 //        }
 //        return pList;
+    }
+
+    public int fetch(String name){
+        Playlist playlist = new Playlist();
+        playlist.setIdPlaylist(0);
+        System.out.println(name);
+        try {
+            Connection connection = JDBCConnection.getConnection();
+            String query = "select * from Playlist WHERE Nama = ?";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1,name);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                System.out.println("test");
+                playlist.setIdPlaylist(rs.getInt("idPlaylist"));
+                playlist.setNama(rs.getString("Nama"));
+                playlist.setIdUser(rs.getInt("User_idUser"));
+            }
+            rs.close();
+            ps.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        System.out.println(playlist.getIdPlaylist());
+        return playlist.getIdPlaylist();
     }
 }

@@ -34,7 +34,7 @@ public class LoginController implements Initializable {
         String passtext = password.getText();
 
         int Result = user.Login(textuser, passtext);
-        if (Result == 1){
+        if (Result == 0){
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../View/sample.fxml"));
             rootPane.getChildren().setAll(pane);
         }

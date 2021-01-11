@@ -123,7 +123,7 @@
                         <ContextMenu>
                           <items>
                             <MenuItem mnemonicParsing="false" onAction="#playsong" text="Play this song" />
-                              <MenuItem mnemonicParsing="false" onAction="#addPlaylist" text="Add to Playlist" />
+                              <MenuItem mnemonicParsing="false" onAction="#addtoPlaylist" text="Add to Playlist" />
                               <MenuItem mnemonicParsing="false" text="Unspecified Action" />
                           </items>
                         </ContextMenu>

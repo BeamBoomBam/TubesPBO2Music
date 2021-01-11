@@ -5,9 +5,9 @@ public class PlayMusic {
     private int idPlaylist;
     private int idMusic;
 
-    public int getIdPlayMusic() {
-        return idPlayMusic;
-    }
+
+
+    public int getIdPlayMusic() { return idPlayMusic; }
 
     public void setIdPlayMusic(int idPlayMusic) {
         this.idPlayMusic = idPlayMusic;

@@ -18,9 +18,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import sample.DAO.MusicDAO;
+import sample.DAO.PlayMusicDAO;
 import sample.DAO.PlaylistDAO;
 import sample.Main.Main;
 import sample.Model.Music;
+import sample.Model.PlayMusic;
 import sample.Model.Playlist;
 
 import javax.sound.sampled.AudioInputStream;
@@ -66,6 +68,7 @@ public class Controller implements Initializable {
     private Playlist playlist;
     private PlaylistDAO playlistDAO;
     private Playlist selectedPlaylist;
+    private Music selectedMusic;
 
     private final ObservableList<Music> musicList = FXCollections.observableArrayList();
 
@@ -119,7 +122,6 @@ public class Controller implements Initializable {
         sortedList.comparatorProperty().bind((TabelLagu.comparatorProperty()));
         TabelLagu.setItems(sortedList);
 
-
     }
 
     public void addPlaylist(ActionEvent ex) throws IOException {
@@ -127,17 +129,11 @@ public class Controller implements Initializable {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setContentText("Playlist name :");
         Optional<String> result = dialog.showAndWait();
-        newplay.setNama(dialog.getDefaultValue());
+        newplay.setNama(result.get());
         PlaylistDAO pDao = new PlaylistDAO();
         if (result.isPresent()){
-//            newplay.setIdPlaylist(0);
             newplay.setIdUser(1);
             newplay.setNama(result.get());
-//            int id = 0;
-//            int idmusic = 0;
-//            int iduser = 1;
-//            String nama = result.get();
-            //pDao.addData(new Playlist(id, nama, idmusic, iduser));
         }
         getPlaylistDAO().addData(newplay);
         getpList().add(newplay);
@@ -194,5 +190,34 @@ public class Controller implements Initializable {
     public void Logout(ActionEvent actionEvent) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("../View/LoginPage.fxml"));
         ChildPane.getChildren().setAll(pane);
+    }
+
+    public void addtoPlaylist(ActionEvent actionEvent) {
+        selectedMusic = TabelLagu.getSelectionModel().getSelectedItem();
+        PlayMusic newplaymusic = new PlayMusic();
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setContentText("Playlist name :");
+        Optional<String> result = dialog.showAndWait();
+        Playlist playlist2 = new Playlist();
+        PlaylistDAO plDao = new PlaylistDAO();
+        if (result.isPresent()){
+            if(plDao.fetch(result.get())==0){
+                playlist2.setIdUser(1);
+                playlist2.setNama(result.get());
+
+                getPlaylistDAO().addData(playlist2);
+                getpList().add(playlist2);
+
+            }
+
+            playlist2.setIdPlaylist(plDao.fetch(result.get()));
+
+            newplaymusic.setIdMusic(selectedMusic.getIdMusic());
+            newplaymusic.setIdPlaylist(playlist2.getIdPlaylist());
+            PlayMusicDAO pmDao = new PlayMusicDAO();
+
+            pmDao.addData(newplaymusic);
+        }
+
     }
 }
