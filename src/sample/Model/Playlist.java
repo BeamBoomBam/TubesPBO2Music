@@ -4,17 +4,15 @@ public class Playlist {
 
 
     private int idPlaylist;
-    private int idMusic;
     private String Nama;
     private int idUser;
 
     public Playlist() {
     }
 
-    public Playlist(int idplaylist, String nama, int idmusic, int iduser) {
+    public Playlist(int idplaylist, String nama, int iduser) {
         this.idPlaylist = idPlaylist;
         this.Nama = Nama;
-        this.idMusic = idMusic;
         this.idUser = idUser;
     }
 
@@ -24,14 +22,6 @@ public class Playlist {
 
     public void setIdPlaylist(int idPlaylist) {
         this.idPlaylist = idPlaylist;
-    }
-
-    public int getIdMusic() {
-        return idMusic;
-    }
-
-    public void setIdMusic(int idMusic) {
-        this.idMusic = idMusic;
     }
 
     public String getNama() {

@@ -131,7 +131,6 @@ public class Controller implements Initializable {
 //            newplay.setIdPlaylist(0);
             newplay.setIdUser(1);
             newplay.setNama(result.get());
-            newplay.setIdMusic(0);
 //            int id = 0;
 //            int idmusic = 0;
 //            int iduser = 1;

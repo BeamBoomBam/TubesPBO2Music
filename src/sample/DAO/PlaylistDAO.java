@@ -80,7 +80,6 @@ public class PlaylistDAO implements daoInterface<Playlist>{
                 Playlist playlist = new Playlist();
                 playlist.setIdPlaylist(rs.getInt("idPlaylist"));
                 playlist.setNama(rs.getString("Nama"));
-                playlist.setIdMusic(rs.getInt("Music_idMusic"));
                 playlist.setIdUser(rs.getInt("User_idUser"));
                 items.add(playlist);
             }
