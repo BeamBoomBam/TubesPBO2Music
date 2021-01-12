@@ -202,22 +202,18 @@ public class Controller implements Initializable {
         PlaylistDAO plDao = new PlaylistDAO();
         if (result.isPresent()){
             if(plDao.fetch(result.get())==0){
-                playlist2.setIdUser(1);
-                playlist2.setNama(result.get());
-
-                getPlaylistDAO().addData(playlist2);
-                getpList().add(playlist2);
-
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Playlist tidak tersedia", ButtonType.YES);
+                alert.showAndWait();
             }
+            else{
+                playlist2.setIdPlaylist(plDao.fetch(result.get()));
 
-            playlist2.setIdPlaylist(plDao.fetch(result.get()));
+                newplaymusic.setIdMusic(selectedMusic.getIdMusic());
+                newplaymusic.setIdPlaylist(playlist2.getIdPlaylist());
+                PlayMusicDAO pmDao = new PlayMusicDAO();
 
-            newplaymusic.setIdMusic(selectedMusic.getIdMusic());
-            newplaymusic.setIdPlaylist(playlist2.getIdPlaylist());
-            PlayMusicDAO pmDao = new PlayMusicDAO();
-
-            pmDao.addData(newplaymusic);
+                pmDao.addData(newplaymusic);
+            }
         }
-
     }
 }
