@@ -10,7 +10,7 @@ public class JDBCConnection {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC", "root", "edwardm05");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "");
             conn.setAutoCommit(false);
         }
         catch (ClassNotFoundException | SQLException ex){
