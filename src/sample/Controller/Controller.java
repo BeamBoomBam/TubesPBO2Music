@@ -96,7 +96,7 @@ public class Controller implements Initializable {
         KolomAlbum.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getAlbum()));
         KolomArtist.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getPenyanyi()));
         Music music = TabelLagu.getSelectionModel().getSelectedItem();
-        System.out.println(music);
+//        System.out.println(music);
         Playlists.refresh();
         static_labelJudul = JudulLagu;
         static_labelArtis = ArtisLagu;
